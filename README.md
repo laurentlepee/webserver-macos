@@ -341,7 +341,7 @@ $ sudo mkdir -v /etc/resolver
 $ sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/local'
 ```
 
-Faire un test de ping : 'ping bogus.dev'
+Faire un test de ping : 'ping test.local'
 
 > #### Sources
 > [Homebrew](https://brew.sh/index_fr.html)  
