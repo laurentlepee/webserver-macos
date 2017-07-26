@@ -283,7 +283,7 @@ Gestions des Virtual hosts
 $ open -e /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf
 ```
 
-Exemple d'url pointant sur le dossier local
+Exemple d'url pointant sur le dossier sites
 ```
 <VirtualHost *:80>
     DocumentRoot "/Users/your_user/Sites"
@@ -292,7 +292,7 @@ Exemple d'url pointant sur le dossier local
 
 <VirtualHost *:80>
     DocumentRoot "/Users/your_user/Sites/mon-site"
-    ServerName mon-site.local
+    ServerName mon-site.dev
 </VirtualHost>
 ```
 
@@ -317,8 +317,9 @@ Ajouter votre nouvelle url
 # localhost is used to configure the loopback interface
 # when the system is booting.  Do not change this entry.
 ##
-127.0.0.1   mon-site.local
+127.0.0.1   mon-site.dev
 ```
+Eviter les .local sous Mac Os ([lien](https://www.bram.us/2011/12/12/mamp-pro-slow-name-resolving-with-local-vhosts-in-lion-fix/))!
 
 Pour automatiser cela nous allons utiliser Dnsmasq
 
@@ -326,9 +327,9 @@ Pour automatiser cela nous allons utiliser Dnsmasq
 $ brew install dnsmasq
 ```
 
-Configurer pour que les url en '.local' pointe vers le serveur local
+Configurer pour que les url en '.dev' pointe vers le serveur local
 ```bash
-$ echo 'address=/.local/127.0.0.1' > /usr/local/etc/dnsmasq.conf
+$ echo 'address=/.dev/127.0.0.1' > /usr/local/etc/dnsmasq.conf
 ```
 Démarage automatique de Dnsmasq
 ```bash
@@ -348,3 +349,4 @@ Faire un test de ping : 'ping test.local'
 > [macOS 10.12 Sierra Apache Setup: Multiple PHP Versions ](https://getgrav.org/blog/macos-sierra-apache-multiple-php-versions)  
 >[macOS 10.12 Sierra Apache Setup: MySQL, APC & More...](https://getgrav.org/blog/macos-sierra-apache-mysql-vhost-apc)  
 >[MariaDB](https://mariadb.com/kb/en/mariadb/installing-mariadb-on-macos-using-homebrew/)
+>[MAMP Pro slow name resolving with .local vhosts in Lion (fix)](https://www.bram.us/2011/12/12/mamp-pro-slow-name-resolving-with-local-vhosts-in-lion-fix/)  
